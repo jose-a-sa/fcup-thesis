@@ -1,15 +1,16 @@
-% !TS-PROGRAM = xelatex
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FCUP Masters/Doctoral Thesis special pages
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FCUP Masters/Doctoral thesis title/examiner pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
 \documentclass[11pt]{article}
+
 
 % GRAPHICS FOLDER SETUP
 \usepackage{graphicx}
@@ -19,10 +20,10 @@
 % STARTING GEOMETRY
 \usepackage[a4paper]{geometry}
 \geometry{
-	top=0.01in,
-	outer=0.01in,
-	inner=0.01in,
-	bottom=0.05in
+	top=0mm,
+	outer=0mm,
+	inner=0mm,
+	bottom=0mm
 }
 
 
@@ -53,11 +54,14 @@
 
 % Thesis title
 \newcommand*{\ttitle}{Insira o título da dissertação, projeto ou relatório de estágio, letra Arial Bold, tamanho ajustado a caixa de texto 12x12cm, justificado à esquerda}
-
 % Author name
 \newcommand*{\authorname}{Nome do autor}
 % Course name
 \newcommand*{\coursename}{Nome do curso}
+% Course name
+\newcommand*{\ttype}{Mestrado}
+% Course name
+\newcommand*{\fieldname}{Área científica}
 % Department name
 \newcommand*{\deptname}{Departamento}
 % Supervisor info, separated by commas (name, status, faculty)
@@ -72,36 +76,90 @@
 
 \begin{document}
 
+\pagestyle{empty}
+
 
 %----------------------------------------------------------------------------------------
 %	ONE-SIDED TITLE PAGE
 %----------------------------------------------------------------------------------------
 
+\hspace{1.5cm}
+\begin{minipage}[b][12.5cm][b]{12.5cm}
+	\begin{flushleft}
+		\setstretch{2.6}
+		{\HUGE \bfseries \ttitle} \\
+		\setstretch{1.2} {\large~\\}
+		{\LargeA \authorname \\} 
+		{\large \coursename \\}
+		{\small \deptname \\ \the\year \\}
+		{\small~\\}
+		{\large \bfseries Orientador \\}
+		{\small \supervisor \\}
+		{\small~\\}
+		{\large \bfseries Coorientador \\}
+		{\small \cosupervisor}
+		\vspace{2cm}
+	\end{flushleft}
+\end{minipage}
+\hspace{\fill}
+\begin{minipage}[b][297mm][b]{54.3mm}
+	\includegraphics[scale=0.97]{msc}
+\end{minipage}
 
-\begin{flushright}
-	\vspace*{\fill}
-	\begin{minipage}[b][12.5cm][t]{12.5cm}
-		\begin{flushleft}
-			\setstretch{3.0}
-			{\HUGE \bfseries \ttitle} \\
-			\setstretch{1.2} {\large~\\}
-			{\LargeA \authorname \\} 
-			{\large \coursename \\}
-			{\small \deptname \\ \the\year \\}
-			{\small~\\}
-			{\large \bfseries Orientador \\}
-			{\small \supervisor \\}
-			{\small~\\}
-			{\large \bfseries Coorientador \\}
-			{\small \cosupervisor}
-		\end{flushleft}
-	\end{minipage}
-	\hspace{2em}
-	\begin{minipage}{54mm}
-		\includegraphics[scale=0.97]{msc}
-	\end{minipage}
-	\vspace*{1mm}
-\end{flushright}
+
+%----------------------------------------------------------------------------------------
+%	EXAMINER PAGE
+%----------------------------------------------------------------------------------------
+
+\raggedleft
+\begin{minipage}[b][297mm][b]{54.3mm}
+	\setstretch{1.2}
+	\includegraphics[width=52mm]{fcup}
+
+	
+	{ \noindent\footnotesize Todas as correções determinadas \\
+		pelo júri, e só essas, foram efetuadas. \\
+		\\
+		O Presidente do Júri, \\
+		\\ 
+		\\
+		\\
+		Porto, \underline{\qquad\quad}/\underline{\quad\qquad}/\underline{\qquad\qquad} \\
+	}
+
+
+	\includegraphics[scale=0.97]{msc}
+\end{minipage}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	BOOK FRONT COVER PAGE
+%----------------------------------------------------------------------------------------
+
+\hspace{1.5cm}
+\begin{minipage}[b][12.5cm][b]{12.5cm}
+	\begin{flushleft}
+		\includegraphics[width=52mm]{fcup}
+		\vspace{5cm}
+	\end{flushleft}
+	\begin{flushleft}
+		\setstretch{2.6}
+		{\HUGE \bfseries \ttitle} \\
+		\setstretch{1.2} {\large~\\}
+		{\LargeA \authorname \\} 
+		{\large Dissertação de \ttype~apresentada à \\}
+		{\large Faculdade de Ciências da Universidade do Porto em \\}
+		{\large \fieldname \\}
+		{\LargeA \the\year \\}
+		\vspace{3cm}
+	\end{flushleft}
+\end{minipage}%
+\hspace{\fill}
+\begin{minipage}[b][297mm][b]{54.3mm}
+	\includegraphics[scale=0.97]{msc2}
+\end{minipage}
 
 \newpage
 
@@ -110,55 +168,15 @@
 %	EXAMINER PAGE
 %----------------------------------------------------------------------------------------
 
-\begin{flushright}
-	\vspace*{\fill}
-	\begin{minipage}[b]{54mm}
-		\setstretch{1.2}
-		\includegraphics[width=0.95\textwidth]{fcup}
-		\\[0.5em]
-		{ \footnotesize Todas as correções determinadas \\
-			pelo júri, e só essas, foram efetuadas. \\
-			\\
-			O Presidente do Júri, \\
-			\\ 
-			\\
-			\\
-			Porto, \underline{\qquad\quad}/\underline{\quad\qquad}/\underline{\qquad\qquad} \\
-		}
-		\includegraphics[scale=0.97]{msc}
-	\end{minipage}
-	\vspace*{1mm}
-\end{flushright}
+\raggedright
+\begin{minipage}[b][297mm][b]{54.3mm}
+	\raggedleft
+	\includegraphics[width=52mm]{fcup}
+	~\\[0.8cm]
+	\includegraphics[scale=0.97]{mscmirror}
+\end{minipage}
 
 \newpage
-´
-
-%----------------------------------------------------------------------------------------
-%	BOOK COVER PAGE
-%----------------------------------------------------------------------------------------
-
-
-% Work on a full cover for a book
-
-% \geometry{
-% 	top=0.01in,
-% 	outer=0.01in,
-% 	inner=0.01in,
-% 	bottom=0.05in
-% }
-
-
-%----------------------------------------------------------------------------------------
-%	ONE-SIDED TITLE PAGE (LOGO ONLY)
-%----------------------------------------------------------------------------------------
-
-\begin{flushright}
-	\vspace*{\fill}
-	\begin{minipage}[b]{54mm}
-		\includegraphics[scale=0.97]{msc}
-	\end{minipage}
-	\vspace*{1mm}
-\end{flushright}
 
 
 

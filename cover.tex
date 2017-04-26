@@ -1,15 +1,16 @@
-% !TS-PROGRAM = xelatex
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FCUP Masters/Doctoral Thesis special pages
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FCUP Masters/Doctoral thesis book cover
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
 \documentclass[11pt]{article}
+
 
 % GRAPHICS FOLDER SETUP
 \usepackage{graphicx}
@@ -20,7 +21,7 @@
 % STARTING GEOMETRY
 \usepackage[a2paper]{geometry}
 \geometry{
-	paperwidth=428mm,
+	paperwidth=434mm,
 	paperheight=297mm,
 	top=0in,
 	left=0in,
@@ -56,19 +57,19 @@
 
 \newcommand\FrontCover{
     \put(-3,0){
-    \parbox[b][297mm]{428mm}{%
+    \parbox[b][\paperheight]{\paperwidth}{%
     \vfill
 	\raggedleft
-    \fbox{\includegraphics[scale=1,page=1]{main.pdf}}
+    \includegraphics[scale=1,page=3]{main.pdf}
     \vfill
 }}}
 
 \newcommand\BackCover{
     \put(-3,0){
-    \parbox[b][297mm]{428mm}{%
+    \parbox[b][\paperheight]{\paperwidth}{%
     \vfill
 	\raggedright
-    \fbox{\includegraphics[scale=1,page=1]{main.pdf}}
+    \includegraphics[scale=1,page=4]{main.pdf}
     \vfill
 }}}
 
@@ -79,8 +80,11 @@
 
 \begin{document}
 
+\pagestyle{empty}
+
 \AddToShipoutPicture*{\BackCover}
 \AddToShipoutPicture*{\FrontCover}
+
 
 BACK COVER TEST
 

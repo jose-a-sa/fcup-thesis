@@ -4,7 +4,7 @@
         {
             "command": "xelatex",
             "args": [
-                "-synctex=1",
+                "-synctex=0",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-pdf",
