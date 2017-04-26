@@ -1,0 +1,102 @@
+% !TS-PROGRAM = xelatex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FCUP Masters/Doctoral Thesis special pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article}
+
+% GRAPHICS FOLDER SETUP
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\graphicspath{{pdf-msc/}}
+
+
+% STARTING GEOMETRY
+\usepackage[a2paper]{geometry}
+\geometry{
+	paperwidth=428mm,
+	paperheight=297mm,
+	top=0in,
+	left=0in,
+	right=0in,
+	bottom=0in
+}
+
+
+% FONT DIR AND ARIAL FONT SETUP
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\setstretch{1.2}
+\usepackage{fontspec}
+\setmainfont[
+	Path={fonts/},
+	UprightFont=*-Regular,
+	ItalicFont=*-Italic,
+	BoldFont=*-Bold,
+	BoldItalicFont=*-Bold-Italic
+]{Arial}
+
+
+% NEW FONT SIZE FOR TITLE
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{36}{72}}
+\newcommand\LargeA{\@setfontsize\Large{18}{22}}
+\makeatother
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT VARIABLES
+%----------------------------------------------------------------------------------------
+
+\newcommand\FrontCover{
+    \put(-3,0){
+    \parbox[b][297mm]{428mm}{%
+    \vfill
+	\raggedleft
+    \fbox{\includegraphics[scale=1,page=1]{main.pdf}}
+    \vfill
+}}}
+
+\newcommand\BackCover{
+    \put(-3,0){
+    \parbox[b][297mm]{428mm}{%
+    \vfill
+	\raggedright
+    \fbox{\includegraphics[scale=1,page=1]{main.pdf}}
+    \vfill
+}}}
+
+
+%----------------------------------------------------------------------------------------
+%	BOOK COVER PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\AddToShipoutPicture*{\BackCover}
+\AddToShipoutPicture*{\FrontCover}
+
+BACK COVER TEST
+
+% \noindent
+% \fbox{\begin{minipage}[c][200mm][b]{\dimexpr.5\textwidth-.5\columnsep-8mm}
+% 	\raggedright
+% 	\includegraphics[scale=0.97]{mscmirror}
+% \end{minipage}}% <---------------- Note the use of "%"
+% \fbox{\begin{minipage}[c][200mm][c]{16mm}
+% 	\centering
+% 	\LaTeX{}
+% \end{minipage}}%
+% \fbox{\begin{minipage}[c][270mm][c]{\dimexpr.5\textwidth-.5\columnsep-8mm}
+% 	\raggedleft
+% 	\vspace{0.2in}
+% 	\includegraphics[scale=0.97]{msc2}
+% \end{minipage}}
+
+\end{document}
