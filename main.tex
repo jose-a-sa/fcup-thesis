@@ -14,7 +14,7 @@
 
 % GRAPHICS FOLDER SETUP
 \usepackage{graphicx}
-\graphicspath{{pdf-msc/}}
+\graphicspath{{msc/},{logos/}}
 
 
 % STARTING GEOMETRY
@@ -43,8 +43,9 @@
 
 % NEW FONT SIZE FOR TITLE
 \makeatletter
-\newcommand\HUGE{\@setfontsize\Huge{36}{72}}
-\newcommand\LargeA{\@setfontsize\Large{18}{22}}
+\newcommand\HUGE{\@setfontsize\Huge{36}{43.2}}
+\newcommand\HugeA{\@setfontsize\Huge{24}{28.8}}
+\newcommand\LargeA{\@setfontsize\Large{18}{21.6}}
 \makeatother
 
 
@@ -52,22 +53,7 @@
 %	DOCUMENT VARIABLES
 %----------------------------------------------------------------------------------------
 
-% Thesis title
-\newcommand*{\ttitle}{Insira o título da dissertação, projeto ou relatório de estágio, letra Arial Bold, tamanho ajustado a caixa de texto 12x12cm, justificado à esquerda}
-% Author name
-\newcommand*{\authorname}{Nome do autor}
-% Course name
-\newcommand*{\coursename}{Nome do curso}
-% Course name
-\newcommand*{\ttype}{Mestrado}
-% Course name
-\newcommand*{\fieldname}{Área científica}
-% Department name
-\newcommand*{\deptname}{Departamento}
-% Supervisor info, separated by commas (name, status, faculty)
-\newcommand*{\supervisor}{Nome do Orientador, Categoria, Faculdade}
-% Cosupervisor info, separated by commas (name, status, faculty)
-\newcommand*{\cosupervisor}{Nome do Coorientador, Categoria, Faculdade}
+\input{vars}
 
 
 %----------------------------------------------------------------------------------------
@@ -77,17 +63,20 @@
 \begin{document}
 
 \pagestyle{empty}
+\setlength{\parindent}{0cm}
 
 
 %----------------------------------------------------------------------------------------
 %	ONE-SIDED TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\hspace{1.5cm}
-\begin{minipage}[b][12.5cm][b]{12.5cm}
-	\begin{flushleft}
+\hspace{25mm}
+\begin{minipage}[b][297mm][t]{125mm}
+	\vfill
+	\parbox[t][200mm][t]{125mm}{
+		\raggedright
 		\setstretch{2.6}
-		{\HUGE \bfseries \ttitle} \\
+		{\HUGE \bfseries \fronttitle} \\
 		\setstretch{1.2} {\large~\\}
 		{\LargeA \authorname \\} 
 		{\large \coursename \\}
@@ -98,12 +87,11 @@
 		{\small~\\}
 		{\large \bfseries Coorientador \\}
 		{\small \cosupervisor}
-		\vspace{2cm}
-	\end{flushleft}
+	}
 \end{minipage}
-\hspace{\fill}
+\hfill
 \begin{minipage}[b][297mm][b]{54.3mm}
-	\includegraphics[scale=0.97]{msc}
+	\includegraphics[scale=0.97]{title}
 \end{minipage}
 
 
@@ -128,7 +116,7 @@
 	}
 
 
-	\includegraphics[scale=0.97]{msc}
+	\includegraphics[scale=0.97]{title}
 \end{minipage}
 
 \newpage
@@ -138,42 +126,51 @@
 %	BOOK FRONT COVER PAGE
 %----------------------------------------------------------------------------------------
 
-\hspace{1.5cm}
-\begin{minipage}[b][12.5cm][b]{12.5cm}
-	\begin{flushleft}
-		\includegraphics[width=52mm]{fcup}
-		\vspace{5cm}
-	\end{flushleft}
-	\begin{flushleft}
+\hspace{25mm}
+\begin{minipage}[b][297mm][t]{125mm}
+	\parbox[t]{125mm}{
+		\raggedleft
+		\vspace{19mm}
+		
+		\includegraphics[width=52mm]{fcup}\hspace{19mm}
+
+		% \vspace{3mm}
+		% \includegraphics[width=52mm]{fcup}\hspace{19mm}
+
+		% \vspace{3mm}
+		% \includegraphics[width=52mm]{fcup}\hspace{19mm}
+	}
+	\vfill
+	\parbox[t][175mm][t]{125mm}{
+		\raggedright
 		\setstretch{2.6}
-		{\HUGE \bfseries \ttitle} \\
+		{\HUGE \bfseries \fronttitle} \\
 		\setstretch{1.2} {\large~\\}
 		{\LargeA \authorname \\} 
 		{\large Dissertação de \ttype~apresentada à \\}
 		{\large Faculdade de Ciências da Universidade do Porto em \\}
 		{\large \fieldname \\}
 		{\LargeA \the\year \\}
-		\vspace{3cm}
-	\end{flushleft}
-\end{minipage}%
-\hspace{\fill}
+	}
+\end{minipage}
+\hfill
 \begin{minipage}[b][297mm][b]{54.3mm}
-	\includegraphics[scale=0.97]{msc2}
+	\includegraphics[scale=0.97]{front}
 \end{minipage}
 
 \newpage
 
 
 %----------------------------------------------------------------------------------------
-%	EXAMINER PAGE
+%	BOOK BACK COVER PAGE
 %----------------------------------------------------------------------------------------
 
 \raggedright
 \begin{minipage}[b][297mm][b]{54.3mm}
 	\raggedleft
 	\includegraphics[width=52mm]{fcup}
-	~\\[0.8cm]
-	\includegraphics[scale=0.97]{mscmirror}
+	~\\[8mm]
+	\includegraphics[scale=0.97]{back}
 \end{minipage}
 
 \newpage
