@@ -1,0 +1,195 @@
+% !TS-PROGRAM = xelatex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FCUP Masters/Doctoral Thesis special pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article}
+
+% GRAPHICS FOLDER SETUP
+\usepackage{graphicx}
+\graphicspath{{pdf-msc/}}
+
+
+% STARTING GEOMETRY
+\usepackage[a4paper]{geometry}
+\geometry{
+	top=0.01in,
+	outer=0.01in,
+	inner=0.01in,
+	bottom=0.05in
+}
+
+
+% FONT DIR AND ARIAL FONT SETUP
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\setstretch{1.2}
+\usepackage{fontspec}
+\setmainfont[
+	Path={fonts/},
+	UprightFont=*-Regular,
+	ItalicFont=*-Italic,
+	BoldFont=*-Bold,
+	BoldItalicFont=*-Bold-Italic
+]{Arial}
+
+
+% NEW FONT SIZE FOR TITLE
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{36}{72}}
+\newcommand\LargeA{\@setfontsize\Large{18}{22}}
+\makeatother
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT VARIABLES
+%----------------------------------------------------------------------------------------
+
+% Thesis title
+\newcommand*{\ttitle}{Insira o título da dissertação, projeto ou relatório de estágio, letra Arial Bold, tamanho ajustado a caixa de texto 12x12cm, justificado à esquerda}
+
+% Author name
+\newcommand*{\authorname}{Nome do autor}
+% Course name
+\newcommand*{\coursename}{Nome do curso}
+% Department name
+\newcommand*{\deptname}{Departamento}
+% Supervisor info, separated by commas (name, status, faculty)
+\newcommand*{\supervisor}{Nome do Orientador, Categoria, Faculdade}
+% Cosupervisor info, separated by commas (name, status, faculty)
+\newcommand*{\cosupervisor}{Nome do Coorientador, Categoria, Faculdade}
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%	ONE-SIDED TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+
+\begin{flushright}
+	\vspace*{\fill}
+	\begin{minipage}[b][12.5cm][t]{12.5cm}
+		\begin{flushleft}
+			\setstretch{3.0}
+			{\HUGE \bfseries \ttitle} \\
+			\setstretch{1.2} {\large~\\}
+			{\LargeA \authorname \\} 
+			{\large \coursename \\}
+			{\small \deptname \\ \the\year \\}
+			{\small~\\}
+			{\large \bfseries Orientador \\}
+			{\small \supervisor \\}
+			{\small~\\}
+			{\large \bfseries Coorientador \\}
+			{\small \cosupervisor}
+		\end{flushleft}
+	\end{minipage}
+	\hspace{2em}
+	\begin{minipage}{54mm}
+		\includegraphics[angle=-90,scale=0.97]{msc}
+	\end{minipage}
+	\vspace*{1mm}
+\end{flushright}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	EXAMINER PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{flushright}
+	\vspace*{\fill}
+	\begin{minipage}[b]{54mm}
+		\setstretch{1.2}
+		\includegraphics[width=0.95\textwidth]{fcup}
+		\\[0.5em]
+		{ \footnotesize Todas as correções determinadas \\
+			pelo júri, e só essas, foram efetuadas. \\
+			\\
+			O Presidente do Júri, \\
+			\\ 
+			\\
+			\\
+			Porto, \underline{\qquad\quad}/\underline{\quad\qquad}/\underline{\qquad\qquad} \\
+		}
+		\includegraphics[angle=-90,scale=0.97]{msc}
+	\end{minipage}
+	\vspace*{1mm}
+\end{flushright}
+
+\newpage
+´
+
+%----------------------------------------------------------------------------------------
+%	BOOK COVER PAGE
+%----------------------------------------------------------------------------------------
+
+
+% Work on a full cover for a book
+
+% \geometry{
+% 	top=0.01in,
+% 	outer=0.01in,
+% 	inner=0.01in,
+% 	bottom=0.05in
+% }
+
+
+%----------------------------------------------------------------------------------------
+%	ONE-SIDED TITLE PAGE (LOGO ONLY)
+%----------------------------------------------------------------------------------------
+
+\begin{flushright}
+	\vspace*{\fill}
+	\begin{minipage}[b]{54mm}
+		\includegraphics[angle=-90,scale=0.97]{msc}
+	\end{minipage}
+	\vspace*{1mm}
+\end{flushright}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRONT BOOK COVER (LOGO ONLY)
+%----------------------------------------------------------------------------------------
+
+\begin{flushright}
+	\vspace*{\fill}
+	\begin{minipage}[b]{54mm}
+		\includegraphics[angle=90,scale=0.97]{msc2}
+	\end{minipage}
+	\vspace*{\fill}
+\end{flushright}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	BACK BOOK COVER (LOGO ONLY)
+%----------------------------------------------------------------------------------------
+
+\begin{flushleft}
+	\vspace*{\fill}
+	\begin{minipage}[b]{55mm}
+		\begin{flushright}
+			\includegraphics[angle=-90,scale=0.97]{mscmirror}
+		\end{flushright}
+	\end{minipage}
+	\vspace*{1mm}
+\end{flushleft}
+
+
+
+\end{document}
