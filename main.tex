@@ -23,6 +23,11 @@
 \usepackage{xcolor}
 
 
+% HYPERREF
+\usepackage{hyperref}
+\hypersetup{colorlinks,urlcolor=blue}
+
+
 % STARTING GEOMETRY
 \usepackage[a4paper]{geometry}
 \geometry{
@@ -63,21 +68,119 @@
 %	DOCUMENT VARIABLES
 %----------------------------------------------------------------------------------------
 
+% Default blue (azul ciencias)
+\definecolor{fcupblue}{RGB}{153,205,255}
+
 \newlength{\spinew}
 \newlength{\coverwidth}
 \newlength{\coverheight}
-\setlength{\coverheight}{297mm}
+\newlength{\sidew}
 
 \newcommand{\spinewidth}[1]{
 	\setlength{\spinew}{#1}
 	\setlength{\coverwidth}{420mm + \spinew}
 }
 \spinewidth{15mm}
+\setlength{\coverheight}{297mm}
 
-
-\graphicspath{{msc/},{logos/}}
-
-
+\newcommand*{\supervisor}[2][]{
+	\def\supnamenolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\supname{#2} }{
+		\def\supname{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
+\newcommand*{\cosupervisor}[2][]{
+	\def\cosupnamenolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\cosupname{#2} }{
+		\def\cosupname{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
+\newcommand*{\supervisoraffiliation}[2][]{
+	\def\supaffilnolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\supaffil{#2} }{
+		\def\supaffil{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
+\newcommand*{\cosupervisoraffiliation}[2][]{
+	\def\cosupaffilnolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\cosupaffil{#2} }{
+		\def\cosupaffil{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
+\newcommand*{\otheraffiliation}[4][]{
+	\def\otherlink{#1}
+	\def\otherlogo{#2}
+	\def\otherabbrev{#3}
+	\def\otheraffilnolink{#4}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\otheraffil{#4} }{
+		\def\otheraffil{\texorpdfstring{\href{#1}{#4}}{#4}}
+	}
+}
+\newcommand*{\extraaffiliation}[4][]{
+	\def\extralink{#1}
+	\def\extralogo{#2}
+	\def\extraabbrev{#3}
+	\def\extraaffilnolink{#4}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\extraaffil{#4} }{
+		\def\extraaffil{\texorpdfstring{\href{#1}{#4}}{#4}}
+	}
+}
+\newcommand*{\supervisorposition}[1]{
+	\def\suppos{#1}
+}
+\newcommand*{\cosupervisorposition}[1]{
+	\def\cosuppos{#1}
+}
+\newcommand*{\fronttitle}[1]{
+	\def\frttitle{#1}
+}
+\newcommand*{\spinetitle}[1]{
+	\def\spntitle{#1}
+}
+\newcommand*{\degreename}[1]{
+	\def\degree{#1}
+}
+\newcommand*{\sciencefield}[1]{
+	\def\scifield{#1}
+}
+\newcommand*{\authorname}[2][]{
+	\def\authrnolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\authr{#2} }{
+		\def\authr{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
+\newcommand*{\department}[2][]{
+	\def\deptnamenolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\deptname{#2} }{
+		\def\deptname{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
+\newcommand*{\thesistype}[1]{
+	\ifthenelse{\equal{#1}{msc}}{
+		\def\ttype{Mestrado}
+		\def\tabbrev{MSc}
+		\def\tcnumber{2}
+		\setlength{\sidew}{54.3mm}
+		\graphicspath{{msc/},{logos/}}
+	}{\ifthenelse{\equal{#1}{phd}}{
+		\def\ttype{Doutoramento}
+		\def\tabbrev{PhD}
+		\def\tcnumber{3}
+		\setlength{\sidew}{56.5mm}
+		\graphicspath{{phd/},{logos/}}
+	}{
+		\GenericWarning{TEST1}{TEST2}
+	}}
+}
+\providecommand{\foobar}{FooBar}
 
 %----------------------------------------------------------------------------------------
 %	START DOCUMENT
@@ -85,11 +188,11 @@
 
 \input{vars}
 
+
 \begin{document}
 
 \pagestyle{empty}
 \setlength{\parindent}{0cm}
-
 
 
 %----------------------------------------------------------------------------------------
@@ -103,21 +206,21 @@
 	\parbox[t][200mm][t]{125mm}{
 		\raggedright
 		\setstretch{2.6}
-		{\HUGE \bfseries \fronttitle} \\
+		{\HUGE \bfseries \frttitle} \\
 		\setstretch{1.2} {\large~\\}
-		{\LargeA \authorname \\} 
-		{\large \coursename \\}
+		{\LargeA \authr \\} 
+		{\large \degree \\}
 		{\small \deptname \\ \the\year \\}
 		{\small~\\}
 		{\large \bfseries Orientador \\}
-		{\small \supervisor \\}
+		{\small \supname,~\ifdefined\suppos \suppos,~\fi \supaffil \\}
 		{\small~\\}
 		{\large \bfseries Coorientador \\}
-		{\small \cosupervisor}
+		{\small \cosupname,~\ifdefined\cosuppos \cosuppos,~\fi \cosupaffil \\}
 	}
 \end{minipage}
 \hfill
-\begin{minipage}[b][297mm][b]{54.3mm}
+\begin{minipage}[b][297mm][b]{\sidew}
 	\includegraphics[scale=0.97]{title}
 \end{minipage}
 
@@ -131,17 +234,19 @@
 
 
 \raggedleft
-\begin{minipage}[b][297mm][b]{54.3mm}
-	\setstretch{1.2}
-
-	\includegraphics[width=52mm]{logo3}
-
-	\vspace{3mm}
-	\includegraphics[width=52mm]{logo2}
-
-	\vspace{3mm}
+\begin{minipage}[b][297mm][b]{\sidew}
+	\setstretch{1.0}
+	\ifdefined\extraaffilnolink
+		\includegraphics[width=52mm]{\extralogo}
+		\\[2mm]
+	\fi
+	\ifdefined\otheraffilnolink
+		\includegraphics[width=52mm]{\otherlogo}
+		\\[2mm]
+	\fi
 	\includegraphics[width=52mm]{fcup}
 
+	\setstretch{1.2}
 	{ \noindent\footnotesize Todas as correções determinadas \\
 		pelo júri, e só essas, foram efetuadas. \\
 		\\
@@ -151,7 +256,6 @@
 		\\
 		Porto, \underline{\qquad\quad}/\underline{\quad\qquad}/\underline{\qquad\qquad} \\
 	}
-
 
 	\includegraphics[scale=0.97]{title}
 \end{minipage}
@@ -175,30 +279,38 @@
 					\vspace{19mm}
 					
 					\includegraphics[width=52mm]{fcup}\hspace{19mm}
+					
+					\ifdefined\otheraffilnolink
+						\vspace{3mm}
+						\includegraphics[width=52mm]{\otherlogo}\hspace{19mm}
+					\fi
 
-					\vspace{3mm}
-					\includegraphics[width=52mm]{logo2}\hspace{19mm}
-
-					\vspace{3mm}
-					\includegraphics[width=52mm]{logo3}\hspace{19mm}
-
-					% ADD EXTRA LOGO FUNCTIONALITY
+					\ifdefined\extraaffilnolink
+						\vspace{3mm}
+						\includegraphics[width=52mm]{\extralogo}\hspace{19mm}
+					\fi
 				}
 				\vfill
-				\parbox[t][170mm][t]{125mm}{
+				\parbox[t][175mm][t]{125mm}{
 					\raggedright
 					\setstretch{2.6}
-					{\HUGE \bfseries \fronttitle} \\
+					{\HUGE \bfseries \frttitle} \\
 					\setstretch{1.2} {\large~\\}
-					{\LargeA \authorname \\} 
-					{\large Dissertação de \ttype~apresentada à \\}
-					{\large Faculdade de Ciências da Universidade do Porto em \\}
-					{\large \fieldname \\}
+					{\LargeA \authrnolink \\}
+					{\large Dissertação de \ttype~apresentada à \\
+						Faculdade de Ciências da Universidade do Porto\ifdefined\otherabbrev
+							\ifdefined\extraabbrev , \otheraffilnolink~e \extraaffilnolink
+							\else ~e \otheraffilnolink \fi
+						\else	 
+							\ifdefined\extraabbrev ~e \extraaffilnolink 
+							\else ~Porto \fi 
+						\fi~em \\
+					\scifield \\}
 					{\LargeA \the\year \\}
 				}
 			\end{minipage}
 			\hfill
-			\begin{minipage}[b][\coverheight][b]{54.3mm}
+			\begin{minipage}[b][\coverheight][b]{\sidew}
 				\includegraphics[scale=0.97]{front}
 			\end{minipage}
 		}
@@ -215,15 +327,15 @@
 \newcommand\BackCover{
     \put(0,0){\parbox[b][\coverheight]{\coverwidth}{% BACK STARTS HERE
 		\raggedright
-		\begin{minipage}[b][\coverheight][b]{54.3mm}
+		\begin{minipage}[b][\coverheight][b]{\sidew}
 			\raggedleft
 			\includegraphics[width=52mm]{fcup}
-			~\\[8mm]
+			
+			\vspace{3mm}
 			\includegraphics[scale=0.97]{back}
 		\end{minipage}
 	}}% BACK ENDS HERE
 }
-
 
 
 %----------------------------------------------------------------------------------------
@@ -239,7 +351,7 @@
 	\fcolorbox{white}{fcupblue}{%
 		\begin{minipage}[c][10mm][c]{2.6\spinew}
 			\centering \bfseries \small \color{white}
-			2º \\ CICLO
+			\tcnumber º \\ CICLO
 		\end{minipage}
 	}% RIBBON ENDS HERE
 }}}
@@ -255,30 +367,33 @@
 			\begin{turn}{-90} 
 				\parbox[t]{31mm}{
 					\raggedright
-					\HugeA MSc
+					\HugeA \tabbrev
 				}
 			\end{turn}
 
 			\setstretch{1.0} 
-			\small FCUP \\ \the\year
+			\small FCUP \\
+			\ifdefined\otherabbrev \otherabbrev \\ \fi
+			\ifdefined\extraabbrev \extraabbrev \\ \fi
+			\the\year
 
 			\vspace{12.5mm}
 			\includegraphics[width=0.6\spinew]{up}
 			\vspace{12.5mm}
 
 			\begin{turn}{-90} 
-				\parbox[t]{100mm}{
+				\parbox[t]{95mm}{
 					\setstretch{1.0} \raggedright
-					\normalsize \bfseries \spinetitle
+					\normalsize \bfseries \spntitle
 				}
 			\end{turn}
 
 			\vfill
 
 			\begin{turn}{-90} 
-				\parbox[t]{60mm}{
+				\parbox[t]{55mm}{
 					\setstretch{1.0} \raggedright
-					\small \bfseries \authorname
+					\small \bfseries \authrnolink
 				}
 			\end{turn}
 
