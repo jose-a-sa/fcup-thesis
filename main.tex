@@ -77,11 +77,14 @@
 \newlength{\coverheight}
 \newlength{\sidew}
 
+
 \newcommand{\spinewidth}[1]{
 	\setlength{\spinew}{#1}
+	% \ifnum\the\value{\getlength{\spinew}}<\the\value{\getlength{\spinethresh}}
+	% 	\setlength{\spinew}{8mm}
+	% \fi
 	\setlength{\coverwidth}{420mm + \spinew}
 }
-\spinewidth{15mm}
 \setlength{\coverheight}{297mm}
 
 \newcommand*{\supervisor}[2][]{
@@ -274,7 +277,7 @@
 	{ \noindent\footnotesize Todas as correções determinadas \\
 		pelo júri, e só essas, foram efetuadas. \\
 		\\
-		O Presidente do Júri, \\
+		O Presidente do Júri, \getlength{\spinethresh}\\
 		\\ 
 		\\
 		\\
