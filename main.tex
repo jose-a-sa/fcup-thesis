@@ -21,6 +21,9 @@
 \usepackage{eso-pic}
 \usepackage{rotating}
 \usepackage{xcolor}
+\usepackage[export]{adjustbox}
+
+\usepackage{tikz}
 
 
 % HYPERREF
@@ -31,10 +34,7 @@
 % STARTING GEOMETRY
 \usepackage[a4paper]{geometry}
 \geometry{
-	top=0mm,
-	outer=0mm,
-	inner=0mm,
-	bottom=0mm
+	margin=0mm
 }
 
 
@@ -60,6 +60,8 @@
 \newcommand\HUGE{\@setfontsize\Huge{36}{43.2}}
 \newcommand\HugeA{\@setfontsize\Huge{24}{28.8}}
 \newcommand\LargeA{\@setfontsize\Large{18}{21.6}}
+\newcommand\LargeB{\@setfontsize\LARGE{20}{24}}
+\newcommand\smaller{\@setfontsize\small{7}{8.4}}
 \makeatother
 
 
@@ -112,6 +114,7 @@
 	}
 }
 \newcommand*{\otheraffiliation}[4][]{
+	\def\collaborating{1}
 	\def\otherlink{#1}
 	\def\otherlogo{#2}
 	\def\otherabbrev{#3}
@@ -122,6 +125,7 @@
 	}
 }
 \newcommand*{\extraaffiliation}[4][]{
+	\def\collaborating{1}
 	\def\extralink{#1}
 	\def\extralogo{#2}
 	\def\extraabbrev{#3}
@@ -262,6 +266,161 @@
 
 \newpage
 
+
+%----------------------------------------------------------------------------------------
+%	CD PAGE
+%----------------------------------------------------------------------------------------
+
+
+\newcommand\CDTemplate{
+    \put(0,0){\parbox[b][297mm][c]{210mm}
+	{
+		\centering
+		\begin{tikzpicture}
+			\draw[gray,very thin] (0,0) circle (20.5mm);
+			\draw[gray,very thin] (0,0) circle (58.5mm);
+		\end{tikzpicture}
+	}}% 
+}
+
+
+\newcommand\CDContent{
+    \put(0,0){\parbox[b][297mm][c]{210mm}
+	{
+		\centering
+		\parbox[b][117mm][t]{117mm}
+		{
+			\parbox[b][40mm][c]{117mm}{
+				\centering
+				\ifdefined\collaborating \vspace{15mm}
+				\else \vspace{3mm} \fi
+				\ifdefined\extraaffilnolink 
+					\includegraphics[width=26mm,valign=t]{\extralogo} 
+				\fi 
+				\ifdefined\otheraffilnolink 
+					\includegraphics[width=26mm,valign=t]{\otherlogo} 
+				\fi
+				\includegraphics[width=26mm,valign=t]{fcup}
+				\ifdefined\collaborating \else
+					\\[2mm]
+					\includegraphics[width=34mm]{cd}
+				\fi
+			}
+		
+			\parbox[b][38mm][c]{38mm}{
+				\centering
+				\hspace{0mm}
+				\ifdefined\collaborating
+					\includegraphics[width=34mm]{cd}
+					\vspace{3mm}
+				\fi
+			}
+			\hfill
+			\parbox[b][38mm][c]{35mm}{
+				\setstretch{1.0}
+				\ifthenelse{\equal{\tcnumber}{2}}{
+					\vspace{4mm}
+					{\noindent\scriptsize O Presidente do Júri, \\
+					\\ 
+					\\
+					\\
+					Porto, \\
+					\\
+					\underline{\qquad\quad}/\underline{\quad\qquad}/\underline{\qquad\qquad} \\}}{}
+				\vspace{2mm}
+			}
+			
+			\centering
+			\parbox[b][35mm][b]{90mm}{
+				\centering
+				\setstretch{1.0}
+				{\small \bfseries \spntitle \\[2mm] } 
+				{\smaller \footnotesize \authrnolink \\[2mm]}
+				{\smaller \degree \\[1mm] 
+				 \deptnamenolink \\[2mm] }
+				{\large \the\year \\[1mm] }
+			}
+		}
+	}}% 
+}
+
+
+%----------------------------------------------------------------------------------------
+%	CD COVER PAGE
+%----------------------------------------------------------------------------------------
+
+
+\newcommand\CDCoverTemplate{
+    \put(0,0){\parbox[b][297mm][c]{210mm}
+	{
+		\centering
+		\vfill
+		
+		\begin{tikzpicture}
+			\draw[gray,very thin] (0,0) rectangle (120mm,120mm);
+		\end{tikzpicture}
+		
+		\vfill
+		
+		\begin{tikzpicture}
+			\draw[gray,very thin] (0,0) rectangle (150mm,117.5mm);
+		\end{tikzpicture}
+
+		\vfill
+	}}% 
+}
+
+
+\newcommand\CDCoverContent{
+    \put(0,0){\parbox[b][297mm][c]{210mm}
+	{
+		\centering
+		\vfill
+		
+		\parbox[b][120mm][b]{120mm}
+		{
+			\raggedleft
+			\hspace{12mm}
+			\begin{minipage}[b][120mm][t]{80mm}
+				\parbox[t]{80mm}{
+					\raggedleft \vspace{8mm}
+					\ifdefined\extraaffilnolink 
+						\includegraphics[width=26mm,valign=t]{\extralogo} 
+					\fi 
+					\ifdefined\otheraffilnolink 
+						\includegraphics[width=26mm,valign=t]{\otherlogo} 
+					\fi
+					\includegraphics[width=26mm,valign=t]{fcup}
+				}
+				\vfill
+				\parbox[t][83mm][t]{80mm}{
+					\raggedright
+					\setstretch{1.5}
+					{\LargeB \bfseries \frttitle} \\
+					\setstretch{1.2} {\smaller~\\}
+					{\small \authrnolink \\}
+					{\scriptsize \degree \\}
+					{\smaller \deptnamenolink \\}
+				}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[b][120mm][b]{0.41\sidew}
+				\includegraphics[scale=0.4]{front}
+			\end{minipage}
+		}
+		
+		\vfill
+		
+		\parbox[b][117.5mm][b]{150mm}
+		{
+			\centering
+			\includegraphics[width=25mm]{fcup}
+			\vspace{5mm}
+		}
+
+		\vfill
+	}}% 
+}
 
 
 %----------------------------------------------------------------------------------------
@@ -405,15 +564,28 @@
 }
 
 
+%----------------------------------------------------------------------------------------
+%	CD PAGES ASSEMBLY
+%----------------------------------------------------------------------------------------
+
+\AddToShipoutPicture*{\CDTemplate}
+\AddToShipoutPicture*{\CDContent}
+
+\phantom{~}
+\newpage
+
+
+\AddToShipoutPicture*{\CDCoverTemplate}
+\AddToShipoutPicture*{\CDCoverContent}
+
+\phantom{~}
+\newpage
 
 %----------------------------------------------------------------------------------------
 %	BOOK COVER ASSEMBLY
 %----------------------------------------------------------------------------------------
 
-
 \eject \pdfpagewidth=\coverwidth \pdfpageheight=\coverheight
-
-\newpage
 
 \AddToShipoutPicture*{\BackCover}
 \AddToShipoutPicture*{\FrontCover}
