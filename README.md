@@ -1,9 +1,29 @@
 # FCUP thesis layout 
 
 Latex version of the thesis layout available at [http://sigarra.up.pt/fcup](https://sigarra.up.pt/fcup/pt/web_base.gera_pagina?p_pagina=*admiss%c3%a3o%20a%20provas%20acad%c3%a9micas).
-All rights go to Faculdade de Ciências da Universidade do Porto.
 
-## Customizable parameters in `vars.tex` 
+Layout rights go to Faculdade de Ciências da Universidade do Porto. Font rights go to Microsoft.
+
+
+## Requisites
+
+The recommended Latex distribuition is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can it on the macOS by downloading MacTeX in [here](https://www.tug.org/texlive/windows.html).
+
+For the Arial font and all packages to work _main.tex_ must be executed with `xelatex` (recommended) or `lualatex`. 
+
+
+## File organization
+
+The project itself is simplified such that there are two .tex files:
+- _main.tex:_ contains all the definitions, structuring and layouts/metrics of the document
+- _vars.tex:_ contains all information about the thesis type, title, author, ...
+- _fonts:_ contains all the Arial fonts used to render text
+- _logos:_ relevant university logos, including Universidade do Porto (UP), Universidade do Aveiro (UA) e Universidade do Minho (UM)
+- _msc:_ mandatory vector graphics for `msc` thesis type
+- _phd:_ mandatory vector graphics for `phd` thesis type
+
+
+## Customizable parameters in _vars.tex_
 
 #### `\thesistype{arg1}` 
 
