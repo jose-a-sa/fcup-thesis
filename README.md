@@ -5,38 +5,54 @@ Latex version of the thesis layout available at [http://sigarra.up.pt/fcup](http
 Layout rights go to Faculdade de Ciências da Universidade do Porto. Font rights go to Microsoft.
 
 
-## Requisites
+## Requisites and Compiling
 
-The recommended Latex distribuition is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can it on the macOS by downloading MacTeX in [here](https://www.tug.org/texlive/windows.html).
+The recommended Latex distribuition is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/texlive/windows.html).
 
-For the Arial font and all packages to work _main.tex_ must be executed with `xelatex` (recommended) or `lualatex`. 
+For the Arial font and all packages to work **_main.tex_** must be executed with `xelatex` (recommended) or `lualatex`. 
+
+After making the proper modifications to the file **vars.tex_**, you must run
+```
+xelatex -interaction=nonstopmode -file-line-error -pdf main
+```
+in the workspace root, to generate the file **_main.pdf_**. Compilation may take a few seconds.
+
+
+## Contents
+
+The project itself is simplified such that there are two .tex files:
+1. **_Title Page:_** Includes all relevant thesis information (with hyperlinks). To be included in the final thesis as the 1st page.
+2. **Examiner Page:_** Page with for the examiner to sign and make the necessary comments. To be included in the final thesis as the 2st page.
+3. **_Disk Template:_** Printing template for disk.
+4. **_Disk Cases:_** Front/back cover of the disk case.
+5. **_Book Cover:_** Special page to be printed when assembling a booklet version of the thesis. Spine width is adjustable.
 
 
 ## File organization
 
 The project itself is simplified such that there are two .tex files:
-- _main.tex:_ contains all the definitions, structuring and layouts/metrics of the document
-- _vars.tex:_ contains all information about the thesis type, title, author, ...
-- _fonts:_ contains all the Arial fonts used to render text
-- _logos:_ relevant university logos, including Universidade do Porto (UP), Universidade do Aveiro (UA) e Universidade do Minho (UM)
-- _msc:_ mandatory vector graphics for `msc` thesis type
-- _phd:_ mandatory vector graphics for `phd` thesis type
+- **_main.tex:_** contains all the definitions, structuring and layouts/metrics of the document
+- **_vars.tex:_** contains all information about the thesis type, title, author, ...
+- **_fonts:_** contains all the Arial fonts used to render text
+- **_logos:_** relevant university logos, including Universidade do Porto (UP), Universidade do Aveiro (UA) e Universidade do Minho (UM)
+- **_msc:_** mandatory vector graphics for `msc` thesis type
+- **_phd:_** mandatory vector graphics for `phd` thesis type
 
 
-## Customizable parameters in _vars.tex_
+## Customizable parameters in **_vars.tex_**
 
 #### `\thesistype{arg1}` 
 
 - **arg1:** [ `msc` | `phd` ] (default: `msc`)
 
-This argument allows to change the layout between PhD (Doctor of Philosophy) and MSc (Master of Science)
+Change the layout between PhD (Doctor of Philosophy) and MSc (Master of Science)
 
 
 #### `\spinewidth{arg1}` 
 
 - **arg1:** _title of the thesis for the front page_ (default: 15mm, minimum: 8mm)
 
-This allows to change the width of the spine of the book cover
+Allows to change the width of the spine of the book cover
 
 
 #### `\fronttitle{arg1}` and `\spinetitle{arg1}` 
