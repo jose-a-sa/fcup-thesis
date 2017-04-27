@@ -2,31 +2,57 @@
 %	PARAMETERS FOR FCUP THESIS TITLEPAGES/BOOK COVER
 %----------------------------------------------------------------------------------------
 
+% THESIS TYPEs:
+% - msc (Master of Sciences)
+% - phd (Doctor of Phylosophy)
+\thesistype{msc}
+
+
+% (CAREFUL) Book spine width 
+\spinewidth{15mm}
+
+
 % Thesis front title
 \fronttitle{Insira o título da dissertação, projeto ou relatório de estágio, letra Arial Bold, tamanho 36 ajustado a caixa de texto 12x12 cm, justificado à esquerda}
+
+
 % Book spine title
 \spinetitle{Insira título da dissertação, projeto ou estágio, letra Arial, tamanho 11, justificado à esquerda}
+
+
 % Author name
-\authorname[mailto:test@test.com]{Nome do autor}
-% Affiliation number 2 (can be commented out to disable)
-\otheraffiliation[mailto:test@test.com]{logos/uaveiro}{UNI2}{Universidade/Faculdade 2}
-% Affiliation number 3 (can be commented out to disable)
-\extraaffiliation[mailto:test@test.com]{logos/uminho}{UNI3}{Universidade/Faculdade 3}
-% Course name
+\authorname[mailto:up000000000@fc.up.pt]{Nome do autor}
+
+
+% Affiliation number 2
+% USAGE: \otheraffiliation[url]{relative/path/to/logo}{INITIAL}{University name}
+\otheraffiliation[http://uni2.pt]{logos/logo2}{UNI2}{Universidade/Faculdade 2}
+
+
+% Affiliation number 3
+% USAGE: \extraaffiliation[url]{relative/path/to/logo}{INITIAL}{University name}
+\extraaffiliation[http://uni2.pt]{logos/logo3}{UNI3}{Universidade/Faculdade 3}
+
+
+% Degrre name
 \degreename{Nome do curso}
-% Course name
-\thesistype{msc}
+
+
 % Field of science
 \sciencefield{Área científica}
+
+
 % Department name
-\department[mailto:test@test.com]{Departamento}
-% Supervisor info, separated by commas (name, status, faculty)
-\supervisor[mailto:test@test.com]{Nome do Orientador}
-\supervisorposition{Categoria} % comment out to hide field
-\supervisoraffiliation[mailto:test@test.com]{Faculdade}
-% Cosupervisor info, separated by commas (name, status, faculty)
-\cosupervisor[mailto:test@test.com]{Nome do Coorientador}
-\cosupervisorposition{Categoria} % comment out to hide field
-\cosupervisoraffiliation[mailto:test@test.com]{Faculdade}
-% Book spine width (CAREFUL)
-\spinewidth{15mm}
+\department[http://department.up.pt]{Departamento}
+
+
+% Supervisor info
+\supervisor[mailto:supervisor@supuni.pt]{Nome do Orientador} % Supervisor name
+\supervisorposition{Categoria} % Supervisor name position/Category (comment out to hide this field)
+\supervisoraffiliation[http://supuni.pt]{Faculdade} % Supervisor university/faculty
+
+
+% Cosupervisor info
+\cosupervisor[mailto:cosupervisor@cosupuni.pt]{Nome do Coorientador} % Cosupervisor name
+\cosupervisorposition{Categoria} % Cosupervisor name position/Category (comment out to hide this field)
+\cosupervisoraffiliation[http://cosupuni.pt]{Faculdade} % Cosupervisor university/faculty}
