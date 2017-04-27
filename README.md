@@ -2,38 +2,37 @@
 
 ## Customizable parameters
 
-### `\thesistype{#1}` 
+### `\thesistype{arg1}` 
 
-1. `msc` (default) or `phd` 
+- **arg1:** [ `msc` | `phd` ] (default: `msc`)
 
 This argument allows to change the layout between PhD (Doctor of Philosophy) and MSc (Master of Science)
 
 
-### `\spinewidth{#1}` 
+### `\spinewidth{arg1}` 
 
-1. `lenght` (default: `15mm`, minimum: `8mm`)
+- **arg1:** _title of the thesis for the front page_ (default: 15mm, minimum: 8mm)
 
 This allows to change the width of the spine of the book cover
 
 
-### `\fronttitle{#1}` 
+### `\fronttitle{arg1}` 
 
-1. `string`
+- **arg1:**  _title of the thesis for the front page_
 
 This allows to change the title of the front pages
 
 
-### `\spinetitle{#1}` 
+### `\spinetitle{arg1}` 
 
-1. `string`
+- **arg1:**  _title of the thesis for the book spine_
 
 Changes the book spin rotated title
 
 
-### `\authorname[href]{#1}` 
+### `\authorname[href]{arg1}` 
 
-- _href_ (optional): hyperlink that appear on the pdf
-
-1. `string`
+- **href:** _hyperlink that appear on the pdf_ (optional)
+- **arg1:** _name of the author_
 
 Changes the book spin rotated title
