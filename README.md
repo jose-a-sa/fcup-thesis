@@ -2,12 +2,12 @@
 
 Latex version of the thesis layout available at [http://sigarra.up.pt/fcup](https://sigarra.up.pt/fcup/pt/web_base.gera_pagina?p_pagina=*admiss%c3%a3o%20a%20provas%20acad%c3%a9micas).
 
-Layout rights go to Faculdade de Ciências da Universidade do Porto. Arial font rights go to Microsoft.
+Arial font rights belong to Microsoft.
 
 
 ## Requisites and Compiling
 
-The recommended Latex distribuition is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/texlive/windows.html).
+The recommended Latex distribution is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/texlive/windows.html).
 
 For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. 
 
@@ -74,14 +74,14 @@ The **href** argument is optional, i.e. can be used `\authorname{arg1}` as well.
 - **href:** _hyperlink used on the University2/University3 field_ (optional)
 - **arg1:** _relative path to the logo of the University2/University3_
 - **arg2:** _initials of the University2/University3_
-- **arg3:** _fullname of the University2/University3_
+- **arg3:** _full name of the University2/University3_
 
 Sets up the pages to incorporate fullname/logo/initials for the University2/University3 field.
 The **href** argument is optional, i.e. can be used `\otheraffiliation{arg1}{arg2}{agr3}` as well.
 
 ### `\degreename{arg1}` 
 
-- **arg1:** _fullname of the degree_
+- **arg1:** _full name of the degree_
 
 ### `\degreename{arg1}` 
 
@@ -89,18 +89,18 @@ The **href** argument is optional, i.e. can be used `\otheraffiliation{arg1}{arg
 
 ### `\supervisor[href]{arg1}` and `\cosupervisor[href]{arg1}`
 
-- **href:** _hyperlink used on the supervisor/cosupervisor field_ (optional)
-- **arg1:** _name of the supervisor/cosupervisor_
+- **href:** _hyperlink used on the supervisor/co-supervisor field_ (optional)
+- **arg1:** _name of the supervisor/co-supervisor_
 
 Commenting the `\cosupervisor` field hides the field in the titlepage
 
 ### `\supervisorposition{arg1}` and `\cosupervisorposition{agr1}`
 
-- **arg1:** _position of the supervisor/cosupervisor_
+- **arg1:** _position of the supervisor/co-supervisor_
 
 This fields can be commented out separately.
 
 ### `\supervisoraffiliation[href]{arg1}` and `\cosupervisoraffiliation[href]{arg1}`
 
-- **href:** _hyperlink used on the supervisor/cosupervisor affiliation university_ (optional)
-- **arg1:** _name of the supervisor/cosupervisor university_
+- **href:** _hyperlink used on the supervisor/co-supervisor affiliation university_ (optional)
+- **arg1:** _name of the supervisor/co-supervisor university_
