@@ -76,7 +76,7 @@ The **href** argument is optional, i.e. can be used `\authorname{arg1}` as well.
 - **arg2:** _initials of the University2/University3_
 - **arg3:** _full name of the University2/University3_
 
-Sets up the pages to incorporate fullname/logo/initials for the University2/University3 field.
+Sets up the pages to incorporate full name/logo/initials for the University2/University3 field.
 The **href** argument is optional, i.e. can be used `\otheraffiliation{arg1}{arg2}{agr3}` as well.
 
 ### `\degreename{arg1}` 
