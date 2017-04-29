@@ -20,7 +20,6 @@ in the workspace root to generate the output pdf. Compilation may take a few sec
 
 ## Contents
 
-The project itself is simplified such that there are two .tex files:
 1. **_Title Page:_** Includes all relevant thesis information (with hyperlinks). To be included in the final thesis as the 1st page.
 2. **_Examiner Page:_** Page with for the examiner to sign and make the necessary comments. To be included in the final thesis as the 2st page.
 3. **_Disk Template:_** Printing template for disk.
