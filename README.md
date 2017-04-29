@@ -7,7 +7,7 @@ Layout rights go to Faculdade de Ciências da Universidade do Porto. Arial font 
 
 ## Requisites and Compiling
 
-The recommended Latex distribuition is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/texlive/windows.html).
+The recommended Latex distribuition is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/texlive/windows.html).
 
 For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. 
 
