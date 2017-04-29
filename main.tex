@@ -22,7 +22,6 @@
 \usepackage{rotating}
 \usepackage{xcolor}
 \usepackage[export]{adjustbox}
-
 \usepackage{tikz}
 
 
@@ -529,7 +528,7 @@
 
 
 \newcommand\Spine{
-    \put(0,0){\parbox[b][\coverheight][t]{\coverwidth}{% SPINE BEGINS HERE
+    \put(-1,0){\parbox[b][\coverheight][t]{\coverwidth}{% SPINE BEGINS HERE
 		\hspace{210mm} 
 		\begin{minipage}[c][\coverheight][t]{\spinew}
 			\centering
@@ -549,12 +548,13 @@
 			\the\year
 
 			\vspace{12.5mm}
+			\hspace{0mm}
 			\includegraphics[width=0.6\spinew]{up}
 			\vspace{12.5mm}
 
 			\begin{turn}{-90} 
 				\parbox[t]{95mm}{
-					\setstretch{1.0} \raggedright
+					\setstretch{0.9} \raggedright
 					\normalsize \bfseries \spntitle
 				}
 			\end{turn}
@@ -563,12 +563,13 @@
 
 			\begin{turn}{-90} 
 				\parbox[t]{55mm}{
-					\setstretch{1.0} \raggedright
+					\setstretch{0.9} \raggedright
 					\small \bfseries \authrnolink
 				}
 			\end{turn}
 
 			\vspace{4mm}
+			\hspace{0mm}
 			\includegraphics[width=0.6\spinew]{fc}
 			\vspace{4mm}
 		\end{minipage}

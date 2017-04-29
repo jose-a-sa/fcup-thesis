@@ -2,20 +2,20 @@
 
 Latex version of the thesis layout available at [http://sigarra.up.pt/fcup](https://sigarra.up.pt/fcup/pt/web_base.gera_pagina?p_pagina=*admiss%c3%a3o%20a%20provas%20acad%c3%a9micas).
 
-Layout rights go to Faculdade de Ciências da Universidade do Porto. Font rights go to Microsoft.
+Layout rights go to Faculdade de Ciências da Universidade do Porto. Arial font rights go to Microsoft.
 
 
 ## Requisites and Compiling
 
 The recommended Latex distribuition is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/texlive/windows.html).
 
-For the Arial font and all packages to work **_main.tex_** must be executed with `xelatex` (recommended) or `lualatex`. 
+For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. 
 
 After making the proper modifications to the file **_vars.tex_**, you must run
 ```
 xelatex -interaction=nonstopmode -file-line-error -pdf main
 ```
-in the workspace root, to generate the file **_main.pdf_**. Compilation may take a few seconds.
+in the workspace root to generate the output pdf. Compilation may take a few seconds.
 
 
 ## Contents
@@ -43,7 +43,7 @@ The project itself is simplified such that there are two .tex files:
 
 ### `\thesistype{arg1}` 
 
-- **arg1:** [ `msc` | `phd` ] (default: `msc`)
+- **arg1:**  `msc` | `phd`
 
 Change the layout between PhD (Doctor of Philosophy) and MSc (Master of Science)
 
