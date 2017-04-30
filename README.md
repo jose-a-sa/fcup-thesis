@@ -46,7 +46,7 @@ Change the layout between PhD (Doctor of Philosophy) and MSc (Master of Science)
 
 #### `\spinewidth{arg1}` 
 
-- **arg1:** _title of the thesis for the front page_ (default: 15mm, minimum: 8mm)
+- **arg1:** _title of the thesis for the front page_ (default: 13mm, minimum: 8mm)
 
 Allows to change the width of the spine of the booklet cover
 
