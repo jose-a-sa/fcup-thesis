@@ -7,15 +7,11 @@ Arial font rights belong to Microsoft.
 
 ## Requisites and Compiling
 
-The recommended Latex distribution is [**TeXLive 2016**](https://www.tug.org/texlive/windows.html) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/texlive/windows.html).
+The recommended Latex distribution is [**TeXLive 2016**](https://www.tug.org/texlive) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/mactex). The distribution [**MiKTeX**](https://miktex.org/) it is likely to work, but you may have to manually install some packages depending on your settings. 
 
-For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. 
+For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. After making the proper modifications to the file **_vars.tex_**, you must run `xelatex -interaction=nonstopmode -file-line-error -pdf main` in the workspace root to generate the output pdf. Compilation may take a few seconds.
 
-After making the proper modifications to the file **_vars.tex_**, you must run
-```
-xelatex -interaction=nonstopmode -file-line-error -pdf main
-```
-in the workspace root to generate the output pdf. Compilation may take a few seconds.
+Alternatively, a simpler way would be to use the online service like [**ShareLaTeX**](https://www.sharelatex.com) to obtain the layout pages. Download a copy of the repository under _Clone or download > Download ZIP_. Then, in ShareLaTeX website, import the downloaded .zip file in _New project > Upload project_, making sure that that the compiler is set to `XeLaTeX` under _Menu > Settings_.
 
 
 ## Contents
@@ -40,28 +36,25 @@ The project itself is simplified such that there are two .tex files:
 
 ## Customizable parameters in **_vars.tex_**
 
-### `\thesistype{arg1}` 
+#### `\thesistype{arg1}` 
 
 - **arg1:**  `msc` | `phd`
 
 Change the layout between PhD (Doctor of Philosophy) and MSc (Master of Science)
 
-
-### `\spinewidth{arg1}` 
+#### `\spinewidth{arg1}` 
 
 - **arg1:** _title of the thesis for the front page_ (default: 15mm, minimum: 8mm)
 
 Allows to change the width of the spine of the book cover
 
-
-### `\fronttitle{arg1}` and `\spinetitle{arg1}` 
+#### `\fronttitle{arg1}` and `\spinetitle{arg1}` 
 
 - **arg1:**  _title of the thesis for the front page/book spine_
 
 This allows to change the titles used in the document
 
-
-### `\authorname[href]{arg1}` 
+#### `\authorname[href]{arg1}` 
 
 - **href:** _hyperlink used on the author field_ (optional)
 - **arg1:** _name of the author_
@@ -69,7 +62,7 @@ This allows to change the titles used in the document
 Changes the author name. For the **href** can be used a website of a mail, using `mailto:mail@univ.edu` as hyperlink.
 The **href** argument is optional, i.e. can be used `\authorname{arg1}` as well.
 
-### `\otheraffiliation[href]{arg1}{arg2}{agr3}` and `\extraaffiliation[href]{arg1}{arg2}{agr3}`
+#### `\otheraffiliation[href]{arg1}{arg2}{agr3}` and `\extraaffiliation[href]{arg1}{arg2}{agr3}`
 
 - **href:** _hyperlink used on the University2/University3 field_ (optional)
 - **arg1:** _relative path to the logo of the University2/University3_
@@ -79,28 +72,28 @@ The **href** argument is optional, i.e. can be used `\authorname{arg1}` as well.
 Sets up the pages to incorporate full name/logo/initials for the University2/University3 field.
 The **href** argument is optional, i.e. can be used `\otheraffiliation{arg1}{arg2}{agr3}` as well.
 
-### `\degreename{arg1}` 
+#### `\degreename{arg1}` 
 
 - **arg1:** _full name of the degree_
 
-### `\degreename{arg1}` 
+#### `\sciencefield{arg1}` 
 
 - **arg1:** _name of the scientific area of the thesis_
 
-### `\supervisor[href]{arg1}` and `\cosupervisor[href]{arg1}`
+#### `\supervisor[href]{arg1}` and `\cosupervisor[href]{arg1}`
 
 - **href:** _hyperlink used on the supervisor/co-supervisor field_ (optional)
 - **arg1:** _name of the supervisor/co-supervisor_
 
 Commenting the `\cosupervisor` field hides the field in the titlepage
 
-### `\supervisorposition{arg1}` and `\cosupervisorposition{agr1}`
+#### `\supervisorposition{arg1}` and `\cosupervisorposition{agr1}`
 
 - **arg1:** _position of the supervisor/co-supervisor_
 
 This fields can be commented out separately.
 
-### `\supervisoraffiliation[href]{arg1}` and `\cosupervisoraffiliation[href]{arg1}`
+#### `\supervisoraffiliation[href]{arg1}` and `\cosupervisoraffiliation[href]{arg1}`
 
 - **href:** _hyperlink used on the supervisor/co-supervisor affiliation university_ (optional)
 - **arg1:** _name of the supervisor/co-supervisor university_
