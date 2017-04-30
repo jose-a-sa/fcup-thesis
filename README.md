@@ -4,7 +4,7 @@ Latex version of the thesis layout available at [http://sigarra.up.pt/fcup](http
 
 All font rights belong to Microsoft.
 
-![Example book cover](main.png)
+![Example booklet cover](main.png)
 
 
 ## Requisites and Compiling
@@ -22,7 +22,7 @@ Alternatively, a simpler way would be to use the online service like [**ShareLaT
 2. **_Examiner Page:_** Page with for the examiner to sign and make the necessary comments. To be included in the final thesis as the 2st page.
 3. **_Disk Template:_** Printing template for disk.
 4. **_Disk Cases:_** Front/back cover of the disk case.
-5. **_Book Cover:_** Special page to be printed when assembling a booklet version of the thesis. Spine width is adjustable.
+5. **_Booklet Cover:_** Special page to be printed when assembling a booklet version of the thesis. Spine width is adjustable.
 
 
 ## File organization
@@ -48,11 +48,11 @@ Change the layout between PhD (Doctor of Philosophy) and MSc (Master of Science)
 
 - **arg1:** _title of the thesis for the front page_ (default: 15mm, minimum: 8mm)
 
-Allows to change the width of the spine of the book cover
+Allows to change the width of the spine of the booklet cover
 
 #### `\fronttitle{arg1}` and `\spinetitle{arg1}` 
 
-- **arg1:**  _title of the thesis for the front page/book spine_
+- **arg1:**  _title of the thesis for the front page/booklet spine_
 
 This allows to change the titles used in the document
 
