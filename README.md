@@ -2,7 +2,9 @@
 
 Latex version of the thesis layout available at [http://sigarra.up.pt/fcup](https://sigarra.up.pt/fcup/pt/web_base.gera_pagina?p_pagina=*admiss%c3%a3o%20a%20provas%20acad%c3%a9micas).
 
-Arial font rights belong to Microsoft.
+![Example book cover](main.png)
+
+All font rights belong to Microsoft.
 
 ## Requisites and Compiling
 
