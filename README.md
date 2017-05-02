@@ -11,7 +11,7 @@ All font rights belong to Microsoft.
 
 The recommended Latex distribution is [**TeXLive 2016**](https://www.tug.org/texlive) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/mactex). The distribution [**MiKTeX**](https://miktex.org/) it is likely to work, but you may have to manually install some packages depending on your settings. 
 
-For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. After making the proper modifications to the file **_vars.tex_**, you must run `xelatex -interaction=nonstopmode -file-line-error -pdf main` in the workspace root to generate the output pdf. Due to the use of external fonts, compilation may take more than a full minute.
+For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. After making the proper modifications to the file **_vars.tex_**, you must run `xelatex -interaction=nonstopmode -file-line-error main` in the workspace root to generate the output pdf. Due to the use of external fonts, compilation may take more than a full minute.
 
 Alternatively, a simpler way would be to use the online service like [**ShareLaTeX**](https://www.sharelatex.com) to obtain the layout pages. Download a copy of the repository under _Clone or download > Download ZIP_. Then, in ShareLaTeX website, import the downloaded .zip file in _New project > Upload project_, making sure that that the compiler is set to _XeLaTeX_ under _Menu > Settings_.
 

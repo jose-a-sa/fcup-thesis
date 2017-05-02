@@ -1,5 +1,6 @@
 ## Workspace folder
 svg/**
+*.ps1
 
 
 ## Core latex/pdflatex auxiliary files:
