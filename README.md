@@ -56,6 +56,12 @@ Allows to change the width of the spine of the booklet cover
 
 This allows to change the titles used in the document
 
+#### `\titlespacing{arg1}`
+
+- **arg1:**  _line spacing multiplier for the title on the front page_ (default: 1.0)
+
+This allows to change the line spacing for the title on the front page and booklet by changing this multiplier. You may want to adjust this value to 1.15/1.20 after changing to your thesis title.
+
 #### `\authorname[href]{arg1}` 
 
 - **href:** _hyperlink used on the author field_ (optional)
