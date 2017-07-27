@@ -11,5 +11,7 @@
                 "%DOC%"
             ]
         }
-    ]
+    ],
+
+    "editor.minimap.enabled": false
 }
