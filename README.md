@@ -9,7 +9,7 @@ All font rights belong to Microsoft.
 
 ## Requisites and Compiling
 
-The recommended Latex distribution is [**TeXLive 2016**](https://www.tug.org/texlive) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/mactex). The distribution [**MiKTeX**](https://miktex.org/) it is likely to work, but you may have to manually install some packages depending on your settings. 
+The recommended Latex distribution is [**TeXLive**](https://www.tug.org/texlive) (Windows/Ubuntu). You can get it on the macOS by downloading **MacTeX** in [**here**](https://www.tug.org/mactex). The distribution [**MiKTeX**](https://miktex.org/) it is likely to work, but you may have to manually install some packages depending on your settings. 
 
 For the Arial font and all packages to work, **_main.tex_** must be executed with `xelatex`. After making the proper modifications to the file **_vars.tex_**, you must run 
 ```
