@@ -99,6 +99,13 @@
 		\def\cosupname{\texorpdfstring{\href{#1}{#2}}{#2}}
 	}
 }
+\newcommand*{\coosupervisor}[2][]{
+	\def\coosupnamenolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\coosupname{#2} }{
+		\def\coosupname{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
 \newcommand*{\supervisoraffiliation}[2][]{
 	\def\supaffilnolink{#2}
 	\ifthenelse{ \equal{#1}{} }{
@@ -113,6 +120,14 @@
 		\def\cosupaffil{\texorpdfstring{\href{#1}{#2}}{#2}}
 	}
 }
+\newcommand*{\coosupervisoraffiliation}[2][]{
+	\def\coosupaffilnolink{#2}
+	\ifthenelse{ \equal{#1}{} }{
+		\def\coosupaffil{#2} }{
+		\def\coosupaffil{\texorpdfstring{\href{#1}{#2}}{#2}}
+	}
+}
+\newif\ifotheraffiliation
 \newcommand*{\otheraffiliation}[4][]{
 	\def\collaborating{1}
 	\def\otherlink{#1}
@@ -123,7 +138,9 @@
 		\def\otheraffil{#4} }{
 		\def\otheraffil{\texorpdfstring{\href{#1}{#4}}{#4}}
 	}
+	\otheraffiliationtrue
 }
+\newif\ifextraaffiliation
 \newcommand*{\extraaffiliation}[4][]{
 	\def\collaborating{1}
 	\def\extralink{#1}
@@ -134,12 +151,16 @@
 		\def\extraaffil{#4} }{
 		\def\extraaffil{\texorpdfstring{\href{#1}{#4}}{#4}}
 	}
+	\extraaffiliationtrue
 }
 \newcommand*{\supervisorposition}[1]{
 	\def\suppos{#1}
 }
 \newcommand*{\cosupervisorposition}[1]{
 	\def\cosuppos{#1}
+}
+\newcommand*{\coosupervisorposition}[1]{
+	\def\coosuppos{#1}
 }
 \newcommand*{\fronttitle}[1]{
 	\def\frttitle{#1}
@@ -230,11 +251,17 @@
 		{\small \deptname \\ \the\year \\}
 		{\small~\\}
 		{\large \bfseries Orientador \\}
-		{\small \supname,~\ifdefined\suppos \suppos,~\fi \supaffil \\}
+		{\small \supname\ifdefined\suppos ,~\suppos\fi\\\supaffil \\}
 		{\small~\\}
 		\ifdefined\cosupaffilnolink
 		{\large \bfseries Coorientador \\}
-		{\small \cosupname,~\ifdefined\cosuppos \cosuppos,~\fi \cosupaffil \\}
+		{\small \cosupname\ifdefined\cosuppos ,~\cosuppos\fi\\\cosupaffil \\}
+		{\small~\\}
+		\fi
+		\ifdefined\coosupaffilnolink
+		{\large \bfseries Coorientador \\}
+		{\small \coosupname\ifdefined\coosuppos ,~\coosuppos\fi\\\coosupaffil \\}
+		{\small~\\}
 		\fi
 	}
 	\vspace{5mm}
@@ -256,15 +283,14 @@
 \raggedleft
 \begin{minipage}[b][297mm][b]{\sidew}
 	\setstretch{1.0}
+	\includegraphics[width=52mm]{fcup}\\[2mm]
 	\ifdefined\extraaffilnolink
 		\includegraphics[width=52mm]{\extralogo}
-		\\[2mm]
+		\\[3mm]
 	\fi
 	\ifdefined\otheraffilnolink
 		\includegraphics[width=52mm]{\otherlogo}
 		\\[2mm]
-	\fi
-	\includegraphics[width=52mm]{fcup}
 
 	\setstretch{1.2}
 	{ \noindent\footnotesize Todas as correções determinadas \\
@@ -352,8 +378,8 @@
 				\setstretch{1.0}
 				{\small \bfseries \spntitle \\[2mm] } 
 				{\smaller \footnotesize \authrnolink \\[2mm]}
-				{\smaller \degree \\[1mm] 
-				 \deptnamenolink \\[2mm] }
+				{\smaller \parbox{65mm}{\centering\degree} \\[1mm] 
+				 \parbox{60mm}{\centering\deptnamenolink} \\[2mm] }
 				{\large \the\year \\[1mm] }
 			}
 		}
@@ -392,19 +418,20 @@
 	{
 		\centering
 		\vfill
-		
 		\parbox[b][120mm][b]{120mm}
 		{
 			\raggedleft
 			\hspace{12mm}
 			\begin{minipage}[b][120mm][t]{80mm}
 				\parbox[t]{80mm}{
-					\raggedleft \vspace{8mm}
+					\raggedleft\vspace{8mm}
 					\ifdefined\extraaffilnolink 
-						\includegraphics[width=26mm,valign=t]{\extralogo} 
+						\includegraphics[width=26mm,valign=t]{\extralogo}%
+						\hspace*{\fill}
 					\fi 
 					\ifdefined\otheraffilnolink 
-						\includegraphics[width=26mm,valign=t]{\otherlogo} 
+						\includegraphics[width=26mm,valign=t]{\otherlogo}%
+						\hspace*{\fill}
 					\fi
 					\includegraphics[width=26mm,valign=t]{fcup}
 				}
@@ -473,11 +500,11 @@
 					\setstretch{1.2} {\large~\\}
 					{\LargeA \authrnolink \\}
 					{\large Dissertação de \ttype~apresentada à \\
-						Faculdade de Ciências da Universidade do Porto\ifdefined\otherabbrev
-							\ifdefined\extraabbrev , \otheraffilnolink~e \extraaffilnolink
+						Faculdade de Ciências da Universidade do Porto\ifotheraffiliation
+							\ifextraaffiliation , \otheraffilnolink~e \extraaffilnolink
 							\else ~e \otheraffilnolink \fi
 						\else	 
-							\ifdefined\extraabbrev ~e \extraaffilnolink \fi 
+							\ifextraaffiliation ~e \extraaffilnolink \fi 
 						\fi~em \\
 					\scifield \\}
 					{\LargeA \the\year \\}
@@ -550,8 +577,8 @@
 
 			\setstretch{1.0} 
 			\small FCUP \\
-			\ifdefined\otherabbrev \otherabbrev \\ \fi
-			\ifdefined\extraabbrev \extraabbrev \\ \fi
+			\ifotheraffiliation \otherabbrev \\ \fi
+			\ifextraaffiliation \extraabbrev \\ \fi
 			\the\year
 
 			\vspace{10mm}
@@ -561,7 +588,7 @@
 
 			\begin{turn}{-90} 
 				\parbox[t]{95mm}{
-					\setstretch{1.0} \raggedright
+					\setstretch{0.9} \raggedright
 					\normalsize \bfseries \spntitle
 				}
 			\end{turn}
@@ -570,7 +597,7 @@
 
 			\begin{turn}{-90} 
 				\parbox[t]{55mm}{
-					\setstretch{1.0} \raggedleft
+					\setstretch{0.9} \raggedleft
 					\small \bfseries \authrnolink
 				}
 			\end{turn}
